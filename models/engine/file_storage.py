@@ -11,12 +11,21 @@ from models.user import User
 
 
 class FileStorage:
-    """This class manages storage of hbnb models in JSON format"""
+    """This class manages storage of hbnb models in JSON format
+    
+    Attributes:
+    __file_path(str): The name of the file to save objects to.
+    __objects(dict): A dictionary of instantiated objects.
+    """
+
     __file_path = 'file.json'
     __objects = {}
 
     def all(self, cls = None):
-        """Returns a dictionary of models currently in storage"""
+        """if a cls is specified, return a dict of objects of that type
+        otherwise, returns the __objects dictionary.
+        """
+        
         if cls is not None:
             if type(cls) == str:
                 cls = eval(cls)
