@@ -8,8 +8,10 @@ from sqlalchemy import Column
 from sqlalchemy import DateTime
 from sqlalchemy import String
 
-Base = declarative_base()
-
+if models.storage_t == "db":
+    Base = declarative_base()
+else:
+    Base = object
 
 class BaseModel:
     """Defines the BaseModel class.
